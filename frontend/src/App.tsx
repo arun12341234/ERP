@@ -13,6 +13,8 @@ import Dashboard from './pages/Dashboard';
 import ItemList from './pages/ItemList';
 import ItemDetail from './pages/ItemDetail';
 import ItemForm from './pages/ItemForm';
+import LeadList from './pages/LeadList';
+import CustomerList from './pages/CustomerList';
 
 function App() {
   const { user, loading, login, logout } = useAuth();
@@ -40,10 +42,20 @@ function App() {
             {/* Protected routes */}
             <Route element={<ProtectedRoute isAuthenticated={!!user} />}>
               <Route path="/dashboard" element={<Dashboard user={user} />} />
+
+              {/* Items (sample module) */}
               <Route path="/items" element={<ItemList />} />
               <Route path="/items/:id" element={<ItemDetail />} />
               <Route path="/items/:id/edit" element={<ItemForm />} />
               <Route path="/items/new" element={<ItemForm />} />
+
+              {/* CRM & Sales */}
+              <Route path="/leads" element={<LeadList />} />
+              <Route path="/customers" element={<CustomerList />} />
+              <Route path="/opportunities" element={<div className="p-8 text-center">Opportunities - Coming Soon</div>} />
+              <Route path="/quotes" element={<div className="p-8 text-center">Quotes - Coming Soon</div>} />
+              <Route path="/sales-orders" element={<div className="p-8 text-center">Sales Orders - Coming Soon</div>} />
+              <Route path="/tickets" element={<div className="p-8 text-center">Support Tickets - Coming Soon</div>} />
             </Route>
 
             {/* Catch all */}
