@@ -15,6 +15,7 @@ import ItemDetail from './pages/ItemDetail';
 import ItemForm from './pages/ItemForm';
 import LeadList from './pages/LeadList';
 import CustomerList from './pages/CustomerList';
+import ProductList from './pages/ProductList';
 
 function App() {
   const { user, loading, login, logout } = useAuth();
@@ -56,6 +57,11 @@ function App() {
               <Route path="/quotes" element={<div className="p-8 text-center">Quotes - Coming Soon</div>} />
               <Route path="/sales-orders" element={<div className="p-8 text-center">Sales Orders - Coming Soon</div>} />
               <Route path="/tickets" element={<div className="p-8 text-center">Support Tickets - Coming Soon</div>} />
+
+              {/* Inventory & Procurement */}
+              <Route path="/products" element={<ProductList />} />
+              <Route path="/vendors" element={<div className="p-8 text-center">Vendors - Coming Soon</div>} />
+              <Route path="/purchase-orders" element={<div className="p-8 text-center">Purchase Orders - Coming Soon</div>} />
             </Route>
 
             {/* Catch all */}

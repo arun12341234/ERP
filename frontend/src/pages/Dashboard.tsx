@@ -147,10 +147,74 @@ export default function Dashboard({ user }: DashboardProps) {
           </div>
         </Link>
 
+        {/* Inventory & Procurement Modules */}
+        <Link
+          to="/products"
+          className="bg-white overflow-hidden shadow rounded-lg hover:shadow-md transition-shadow"
+        >
+          <div className="p-5">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                </svg>
+              </div>
+              <div className="ml-5 w-0 flex-1">
+                <dl>
+                  <dt className="text-sm font-medium text-gray-500 truncate">Products</dt>
+                  <dd className="text-lg font-medium text-gray-900">Product Catalog</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          to="/vendors"
+          className="bg-white overflow-hidden shadow rounded-lg hover:shadow-md transition-shadow"
+        >
+          <div className="p-5">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <div className="ml-5 w-0 flex-1">
+                <dl>
+                  <dt className="text-sm font-medium text-gray-500 truncate">Vendors</dt>
+                  <dd className="text-lg font-medium text-gray-900">Supplier Management</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          to="/purchase-orders"
+          className="bg-white overflow-hidden shadow rounded-lg hover:shadow-md transition-shadow"
+        >
+          <div className="p-5">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <div className="ml-5 w-0 flex-1">
+                <dl>
+                  <dt className="text-sm font-medium text-gray-500 truncate">Purchase Orders</dt>
+                  <dd className="text-lg font-medium text-gray-900">PO Management</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </Link>
+
         {/* Legacy Item Module */}
         <Link
           to="/items"
-          className="bg-white overflow-hidden shadow rounded-lg hover:shadow-md transition-shadow"
+          className="bg-white overflow-hidden shadow rounded-lg hover:shadow-md transition-shadow opacity-60"
         >
           <div className="p-5">
             <div className="flex items-center">
