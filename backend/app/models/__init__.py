@@ -20,6 +20,21 @@ from app.models.quality_inspection import QualityInspection
 from app.models.stock_location import StockLocation, StockItem
 from app.models.stock_transfer import StockTransfer
 from app.models.stock_count import StockCount
+from app.models.production_plan import ProductionPlan
+from app.models.work_order import WorkOrder
+from app.models.material_issue import MaterialIssue
+from app.models.machine import Machine
+from app.models.machine_schedule import MachineSchedule
+from app.models.labor_allocation import LaborAllocation
+from app.models.shopfloor_job import ShopfloorJob
+from app.models.production_execution import ProductionExecution
+from app.models.downtime import Downtime
+from app.models.quality_check_production import QualityCheckProduction
+from app.models.rework_order import ReworkOrder
+from app.models.scrap_record import ScrapRecord
+from app.models.finished_goods_receipt import FinishedGoodsReceipt
+from app.models.maintenance_request import MaintenanceRequest
+from app.models.preventive_maintenance import PreventiveMaintenance
 
 __all__ = [
     "User",
@@ -44,4 +59,19 @@ __all__ = [
     "StockItem",
     "StockTransfer",
     "StockCount",
+    "ProductionPlan",
+    "WorkOrder",
+    "MaterialIssue",
+    "Machine",
+    "MachineSchedule",
+    "LaborAllocation",
+    "ShopfloorJob",
+    "ProductionExecution",
+    "Downtime",
+    "QualityCheckProduction",
+    "ReworkOrder",
+    "ScrapRecord",
+    "FinishedGoodsReceipt",
+    "MaintenanceRequest",
+    "PreventiveMaintenance",
 ]

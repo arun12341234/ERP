@@ -16,6 +16,8 @@ import ItemForm from './pages/ItemForm';
 import LeadList from './pages/LeadList';
 import CustomerList from './pages/CustomerList';
 import ProductList from './pages/ProductList';
+import WorkOrderList from './pages/WorkOrderList';
+import MachineList from './pages/MachineList';
 
 function App() {
   const { user, loading, login, logout } = useAuth();
@@ -62,6 +64,10 @@ function App() {
               <Route path="/products" element={<ProductList />} />
               <Route path="/vendors" element={<div className="p-8 text-center">Vendors - Coming Soon</div>} />
               <Route path="/purchase-orders" element={<div className="p-8 text-center">Purchase Orders - Coming Soon</div>} />
+
+              {/* Manufacturing & Production */}
+              <Route path="/work-orders" element={<WorkOrderList />} />
+              <Route path="/machines" element={<MachineList />} />
             </Route>
 
             {/* Catch all */}
