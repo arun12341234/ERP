@@ -18,6 +18,8 @@ import CustomerList from './pages/CustomerList';
 import ProductList from './pages/ProductList';
 import WorkOrderList from './pages/WorkOrderList';
 import MachineList from './pages/MachineList';
+import InvoiceList from './pages/InvoiceList';
+import ChartOfAccountsList from './pages/ChartOfAccountsList';
 
 function App() {
   const { user, loading, login, logout } = useAuth();
@@ -68,6 +70,10 @@ function App() {
               {/* Manufacturing & Production */}
               <Route path="/work-orders" element={<WorkOrderList />} />
               <Route path="/machines" element={<MachineList />} />
+
+              {/* Finance & Accounting */}
+              <Route path="/invoices" element={<InvoiceList />} />
+              <Route path="/chart-of-accounts" element={<ChartOfAccountsList />} />
             </Route>
 
             {/* Catch all */}

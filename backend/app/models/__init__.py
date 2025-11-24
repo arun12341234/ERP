@@ -35,6 +35,21 @@ from app.models.scrap_record import ScrapRecord
 from app.models.finished_goods_receipt import FinishedGoodsReceipt
 from app.models.maintenance_request import MaintenanceRequest
 from app.models.preventive_maintenance import PreventiveMaintenance
+from app.models.chart_of_accounts import ChartOfAccounts
+from app.models.invoice import Invoice
+from app.models.expense import Expense
+from app.models.vendor_payment import VendorPayment
+from app.models.customer_receipt import CustomerReceipt
+from app.models.journal_entry import JournalEntry, JournalEntryLine
+from app.models.bank_reconciliation import BankReconciliation, BankReconciliationLine
+from app.models.fixed_asset import FixedAsset
+from app.models.depreciation import Depreciation
+from app.models.tax_filing import TaxFiling
+from app.models.budget import Budget, BudgetLine
+from app.models.cost_center import CostCenter
+from app.models.financial_period import FinancialPeriod
+from app.models.cash_flow import CashFlow, CashFlowLine
+from app.models.audit_log import AuditLog
 
 __all__ = [
     "User",
@@ -74,4 +89,23 @@ __all__ = [
     "FinishedGoodsReceipt",
     "MaintenanceRequest",
     "PreventiveMaintenance",
+    "ChartOfAccounts",
+    "Invoice",
+    "Expense",
+    "VendorPayment",
+    "CustomerReceipt",
+    "JournalEntry",
+    "JournalEntryLine",
+    "BankReconciliation",
+    "BankReconciliationLine",
+    "FixedAsset",
+    "Depreciation",
+    "TaxFiling",
+    "Budget",
+    "BudgetLine",
+    "CostCenter",
+    "FinancialPeriod",
+    "CashFlow",
+    "CashFlowLine",
+    "AuditLog",
 ]
