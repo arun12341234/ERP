@@ -6,7 +6,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.core.database import init_db
-from app.routers import health, auth, users, items, leads, crm, inventory, manufacturing, finance
+from app.routers import health, auth, users, items, leads, crm, inventory, manufacturing, finance, logistics
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -46,6 +46,9 @@ app.include_router(manufacturing.router, prefix=settings.API_V1_STR)
 
 # Finance & Accounting router
 app.include_router(finance.router, prefix=settings.API_V1_STR)
+
+# Supply Chain & Logistics router
+app.include_router(logistics.router, prefix=settings.API_V1_STR)
 
 
 @app.on_event("startup")

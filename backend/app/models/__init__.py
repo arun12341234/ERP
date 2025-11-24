@@ -50,6 +50,21 @@ from app.models.cost_center import CostCenter
 from app.models.financial_period import FinancialPeriod
 from app.models.cash_flow import CashFlow, CashFlowLine
 from app.models.audit_log import AuditLog
+from app.models.logistics_request import LogisticsRequest
+from app.models.loading_plan import LoadingPlan
+from app.models.shipment import Shipment
+from app.models.shipment_tracking import ShipmentTracking
+from app.models.delivery_confirmation import DeliveryConfirmation
+from app.models.freight_invoice import FreightInvoice
+from app.models.demand_forecast import DemandForecast
+from app.models.route_optimization import RouteOptimization
+from app.models.carrier_performance import CarrierPerformance
+from app.models.warehouse_slot import WarehouseSlot
+from app.models.packaging_request import PackagingRequest
+from app.models.return_request import ReturnRequest
+from app.models.customs_document import CustomsDocument
+from app.models.third_party_logistics import ThirdPartyLogistics
+from app.models.cold_chain_monitoring import ColdChainMonitoring
 
 __all__ = [
     "User",
@@ -108,4 +123,19 @@ __all__ = [
     "CashFlow",
     "CashFlowLine",
     "AuditLog",
+    "LogisticsRequest",
+    "LoadingPlan",
+    "Shipment",
+    "ShipmentTracking",
+    "DeliveryConfirmation",
+    "FreightInvoice",
+    "DemandForecast",
+    "RouteOptimization",
+    "CarrierPerformance",
+    "WarehouseSlot",
+    "PackagingRequest",
+    "ReturnRequest",
+    "CustomsDocument",
+    "ThirdPartyLogistics",
+    "ColdChainMonitoring",
 ]

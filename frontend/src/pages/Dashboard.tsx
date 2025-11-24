@@ -297,6 +297,49 @@ export default function Dashboard({ user }: DashboardProps) {
           </div>
         </Link>
 
+        {/* Supply Chain & Logistics Modules */}
+        <Link
+          to="/logistics"
+          className="bg-white overflow-hidden shadow rounded-lg hover:shadow-md transition-shadow"
+        >
+          <div className="p-5">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+              </div>
+              <div className="ml-5 w-0 flex-1">
+                <dl>
+                  <dt className="text-sm font-medium text-gray-500 truncate">Logistics</dt>
+                  <dd className="text-lg font-medium text-gray-900">Supply Chain</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          to="/logistics/shipments"
+          className="bg-white overflow-hidden shadow rounded-lg hover:shadow-md transition-shadow"
+        >
+          <div className="p-5">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                </svg>
+              </div>
+              <div className="ml-5 w-0 flex-1">
+                <dl>
+                  <dt className="text-sm font-medium text-gray-500 truncate">Shipments</dt>
+                  <dd className="text-lg font-medium text-gray-900">Track Deliveries</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </Link>
+
         {/* Legacy Item Module */}
         <Link
           to="/items"

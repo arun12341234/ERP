@@ -20,6 +20,8 @@ import WorkOrderList from './pages/WorkOrderList';
 import MachineList from './pages/MachineList';
 import InvoiceList from './pages/InvoiceList';
 import ChartOfAccountsList from './pages/ChartOfAccountsList';
+import LogisticsDashboard from './pages/LogisticsDashboard';
+import ShipmentList from './pages/ShipmentList';
 
 function App() {
   const { user, loading, login, logout } = useAuth();
@@ -74,6 +76,17 @@ function App() {
               {/* Finance & Accounting */}
               <Route path="/invoices" element={<InvoiceList />} />
               <Route path="/chart-of-accounts" element={<ChartOfAccountsList />} />
+
+              {/* Supply Chain & Logistics */}
+              <Route path="/logistics" element={<LogisticsDashboard />} />
+              <Route path="/logistics/shipments" element={<ShipmentList />} />
+              <Route path="/logistics/requests" element={<div className="p-8 text-center">Logistics Requests - Coming Soon</div>} />
+              <Route path="/logistics/tracking" element={<div className="p-8 text-center">Real-Time Tracking - Coming Soon</div>} />
+              <Route path="/logistics/returns" element={<div className="p-8 text-center">Returns Management - Coming Soon</div>} />
+              <Route path="/logistics/customs" element={<div className="p-8 text-center">Customs Documents - Coming Soon</div>} />
+              <Route path="/logistics/carrier-performance" element={<div className="p-8 text-center">Carrier Performance - Coming Soon</div>} />
+              <Route path="/logistics/warehouse-slots" element={<div className="p-8 text-center">Warehouse Slotting - Coming Soon</div>} />
+              <Route path="/logistics/cold-chain" element={<div className="p-8 text-center">Cold Chain Monitoring - Coming Soon</div>} />
             </Route>
 
             {/* Catch all */}
