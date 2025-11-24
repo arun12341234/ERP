@@ -65,6 +65,16 @@ from app.models.return_request import ReturnRequest
 from app.models.customs_document import CustomsDocument
 from app.models.third_party_logistics import ThirdPartyLogistics
 from app.models.cold_chain_monitoring import ColdChainMonitoring
+from app.models.website_product import WebsiteProduct
+from app.models.online_order import OnlineOrder
+from app.models.customer_wallet import CustomerWallet, WalletTransaction
+from app.models.online_return import OnlineReturn
+from app.models.loyalty_points import LoyaltyAccount, PointsTransaction
+from app.models.offer_campaign import OfferCampaign, CouponUsage
+from app.models.marketplace_sync import MarketplaceIntegration, MarketplaceListing
+from app.models.chatbot_interaction import ChatbotConversation, ChatbotMessage
+from app.models.community_forum import ForumThread, ForumReply
+from app.models.customer_review import CustomerReview, ReviewHelpfulness
 
 __all__ = [
     "User",
@@ -138,4 +148,21 @@ __all__ = [
     "CustomsDocument",
     "ThirdPartyLogistics",
     "ColdChainMonitoring",
+    "WebsiteProduct",
+    "OnlineOrder",
+    "CustomerWallet",
+    "WalletTransaction",
+    "OnlineReturn",
+    "LoyaltyAccount",
+    "PointsTransaction",
+    "OfferCampaign",
+    "CouponUsage",
+    "MarketplaceIntegration",
+    "MarketplaceListing",
+    "ChatbotConversation",
+    "ChatbotMessage",
+    "ForumThread",
+    "ForumReply",
+    "CustomerReview",
+    "ReviewHelpfulness",
 ]

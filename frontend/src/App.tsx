@@ -22,6 +22,8 @@ import InvoiceList from './pages/InvoiceList';
 import ChartOfAccountsList from './pages/ChartOfAccountsList';
 import LogisticsDashboard from './pages/LogisticsDashboard';
 import ShipmentList from './pages/ShipmentList';
+import WebsiteProductList from './pages/WebsiteProductList';
+import OnlineOrderList from './pages/OnlineOrderList';
 
 function App() {
   const { user, loading, login, logout } = useAuth();
@@ -87,6 +89,18 @@ function App() {
               <Route path="/logistics/carrier-performance" element={<div className="p-8 text-center">Carrier Performance - Coming Soon</div>} />
               <Route path="/logistics/warehouse-slots" element={<div className="p-8 text-center">Warehouse Slotting - Coming Soon</div>} />
               <Route path="/logistics/cold-chain" element={<div className="p-8 text-center">Cold Chain Monitoring - Coming Soon</div>} />
+
+              {/* Omni-Channel Commerce & Digital Engagement */}
+              <Route path="/commerce/products" element={<WebsiteProductList />} />
+              <Route path="/commerce/orders" element={<OnlineOrderList />} />
+              <Route path="/commerce/wallets" element={<div className="p-8 text-center">Customer Wallets - Coming Soon</div>} />
+              <Route path="/commerce/returns" element={<div className="p-8 text-center">Online Returns - Coming Soon</div>} />
+              <Route path="/commerce/loyalty" element={<div className="p-8 text-center">Loyalty Program - Coming Soon</div>} />
+              <Route path="/commerce/campaigns" element={<div className="p-8 text-center">Offer Campaigns - Coming Soon</div>} />
+              <Route path="/commerce/marketplace" element={<div className="p-8 text-center">Marketplace Sync - Coming Soon</div>} />
+              <Route path="/commerce/chatbot" element={<div className="p-8 text-center">Chatbot Interactions - Coming Soon</div>} />
+              <Route path="/commerce/forum" element={<div className="p-8 text-center">Community Forum - Coming Soon</div>} />
+              <Route path="/commerce/reviews" element={<div className="p-8 text-center">Customer Reviews - Coming Soon</div>} />
             </Route>
 
             {/* Catch all */}

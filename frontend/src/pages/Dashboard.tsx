@@ -340,6 +340,49 @@ export default function Dashboard({ user }: DashboardProps) {
           </div>
         </Link>
 
+        {/* Omni-Channel Commerce Modules */}
+        <Link
+          to="/commerce/products"
+          className="bg-white overflow-hidden shadow rounded-lg hover:shadow-md transition-shadow"
+        >
+          <div className="p-5">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+              </div>
+              <div className="ml-5 w-0 flex-1">
+                <dl>
+                  <dt className="text-sm font-medium text-gray-500 truncate">Website Products</dt>
+                  <dd className="text-lg font-medium text-gray-900">E-commerce Catalog</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          to="/commerce/orders"
+          className="bg-white overflow-hidden shadow rounded-lg hover:shadow-md transition-shadow"
+        >
+          <div className="p-5">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <div className="ml-5 w-0 flex-1">
+                <dl>
+                  <dt className="text-sm font-medium text-gray-500 truncate">Online Orders</dt>
+                  <dd className="text-lg font-medium text-gray-900">E-commerce Sales</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </Link>
+
         {/* Legacy Item Module */}
         <Link
           to="/items"
