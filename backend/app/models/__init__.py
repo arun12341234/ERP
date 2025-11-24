@@ -75,6 +75,15 @@ from app.models.marketplace_sync import MarketplaceIntegration, MarketplaceListi
 from app.models.chatbot_interaction import ChatbotConversation, ChatbotMessage
 from app.models.community_forum import ForumThread, ForumReply
 from app.models.customer_review import CustomerReview, ReviewHelpfulness
+from app.models.role_assignment import RoleAssignment
+from app.models.data_backup import DataBackup
+from app.models.system_health import SystemHealthCheck
+from app.models.api_integration import APIIntegration
+from app.models.document_digitization import DocumentDigitization
+from app.models.analytics_dashboard import AnalyticsDashboard, KPIMetric
+from app.models.risk_assessment import RiskAssessment
+from app.models.alert_management import AlertManagement
+from app.models.regulatory_compliance import RegulatoryCompliance
 
 __all__ = [
     "User",
@@ -165,4 +174,14 @@ __all__ = [
     "ForumReply",
     "CustomerReview",
     "ReviewHelpfulness",
+    "RoleAssignment",
+    "DataBackup",
+    "SystemHealthCheck",
+    "APIIntegration",
+    "DocumentDigitization",
+    "AnalyticsDashboard",
+    "KPIMetric",
+    "RiskAssessment",
+    "AlertManagement",
+    "RegulatoryCompliance",
 ]

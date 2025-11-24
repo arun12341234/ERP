@@ -383,6 +383,70 @@ export default function Dashboard({ user }: DashboardProps) {
           </div>
         </Link>
 
+        {/* Governance, Audit, AI & System Ops Modules */}
+        <Link
+          to="/governance/health"
+          className="bg-white overflow-hidden shadow rounded-lg hover:shadow-md transition-shadow"
+        >
+          <div className="p-5">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div className="ml-5 w-0 flex-1">
+                <dl>
+                  <dt className="text-sm font-medium text-gray-500 truncate">System Health</dt>
+                  <dd className="text-lg font-medium text-gray-900">Infrastructure Monitoring</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          to="/governance/alerts"
+          className="bg-white overflow-hidden shadow rounded-lg hover:shadow-md transition-shadow"
+        >
+          <div className="p-5">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+              </div>
+              <div className="ml-5 w-0 flex-1">
+                <dl>
+                  <dt className="text-sm font-medium text-gray-500 truncate">Alert Management</dt>
+                  <dd className="text-lg font-medium text-gray-900">System Alerts</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          to="/governance/roles"
+          className="bg-white overflow-hidden shadow rounded-lg hover:shadow-md transition-shadow"
+        >
+          <div className="p-5">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <svg className="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </div>
+              <div className="ml-5 w-0 flex-1">
+                <dl>
+                  <dt className="text-sm font-medium text-gray-500 truncate">Role & Access</dt>
+                  <dd className="text-lg font-medium text-gray-900">User Permissions</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </Link>
+
         {/* Legacy Item Module */}
         <Link
           to="/items"

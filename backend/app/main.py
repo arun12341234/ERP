@@ -6,7 +6,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.core.database import init_db
-from app.routers import health, auth, users, items, leads, crm, inventory, manufacturing, finance, logistics, commerce
+from app.routers import health, auth, users, items, leads, crm, inventory, manufacturing, finance, logistics, commerce, governance
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -52,6 +52,9 @@ app.include_router(logistics.router, prefix=settings.API_V1_STR)
 
 # Omni-Channel Commerce & Digital Engagement router
 app.include_router(commerce.router, prefix=settings.API_V1_STR)
+
+# Governance, Audit, AI & System Ops router
+app.include_router(governance.router, prefix=settings.API_V1_STR)
 
 
 @app.on_event("startup")

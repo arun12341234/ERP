@@ -24,6 +24,9 @@ import LogisticsDashboard from './pages/LogisticsDashboard';
 import ShipmentList from './pages/ShipmentList';
 import WebsiteProductList from './pages/WebsiteProductList';
 import OnlineOrderList from './pages/OnlineOrderList';
+import SystemHealthDashboard from './pages/SystemHealthDashboard';
+import AlertList from './pages/AlertList';
+import RoleAssignmentList from './pages/RoleAssignmentList';
 
 function App() {
   const { user, loading, login, logout } = useAuth();
@@ -101,6 +104,18 @@ function App() {
               <Route path="/commerce/chatbot" element={<div className="p-8 text-center">Chatbot Interactions - Coming Soon</div>} />
               <Route path="/commerce/forum" element={<div className="p-8 text-center">Community Forum - Coming Soon</div>} />
               <Route path="/commerce/reviews" element={<div className="p-8 text-center">Customer Reviews - Coming Soon</div>} />
+
+              {/* Governance, Audit, AI & System Ops */}
+              <Route path="/governance/roles" element={<RoleAssignmentList />} />
+              <Route path="/governance/backups" element={<div className="p-8 text-center">Data Backups - Coming Soon</div>} />
+              <Route path="/governance/health" element={<SystemHealthDashboard />} />
+              <Route path="/governance/integrations" element={<div className="p-8 text-center">API Integrations - Coming Soon</div>} />
+              <Route path="/governance/documents" element={<div className="p-8 text-center">Document Digitization - Coming Soon</div>} />
+              <Route path="/governance/analytics" element={<div className="p-8 text-center">Analytics Dashboards - Coming Soon</div>} />
+              <Route path="/governance/risks" element={<div className="p-8 text-center">Risk Assessment - Coming Soon</div>} />
+              <Route path="/governance/alerts" element={<AlertList />} />
+              <Route path="/governance/audit" element={<div className="p-8 text-center">Audit Trail - Coming Soon</div>} />
+              <Route path="/governance/compliance" element={<div className="p-8 text-center">Regulatory Compliance - Coming Soon</div>} />
             </Route>
 
             {/* Catch all */}
