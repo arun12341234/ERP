@@ -16,6 +16,15 @@ class ForecastMethod(str, enum.Enum):
     MANUAL = "manual"
 
 
+class DemandForecastStatus(str, enum.Enum):
+    DRAFT = "draft"
+    PENDING_REVIEW = "pending_review"
+    APPROVED = "approved"
+    REJECTED = "rejected"
+    ACTIVE = "active"
+    ARCHIVED = "archived"
+
+
 class DemandForecast(Base):
     __tablename__ = "demand_forecasts"
 
@@ -32,6 +41,9 @@ class DemandForecast(Base):
 
     # Forecast method
     forecast_method = Column(Enum(ForecastMethod), nullable=False)
+
+    # Status
+    status = Column(Enum(DemandForecastStatus), default=DemandForecastStatus.DRAFT)
 
     # Forecast data
     forecasted_quantity = Column(Float, nullable=False)

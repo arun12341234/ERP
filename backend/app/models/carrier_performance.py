@@ -2,9 +2,18 @@
 Carrier Performance model - carrier performance tracking and rating.
 """
 from datetime import datetime, date
-from sqlalchemy import Column, Integer, String, Text, DateTime, Date, Float
+from sqlalchemy import Column, Integer, String, Text, DateTime, Date, Float, Enum
 from app.core.database import Base
 from app.core.config import settings
+import enum
+
+
+class CarrierPerformanceStatus(str, enum.Enum):
+    DRAFT = "draft"
+    UNDER_REVIEW = "under_review"
+    COMPLETED = "completed"
+    PUBLISHED = "published"
+    ARCHIVED = "archived"
 
 
 class CarrierPerformance(Base):
@@ -21,6 +30,9 @@ class CarrierPerformance(Base):
     review_date = Column(Date, nullable=False)
     period_start = Column(Date, nullable=False)
     period_end = Column(Date, nullable=False)
+
+    # Status
+    status = Column(Enum(CarrierPerformanceStatus), default=CarrierPerformanceStatus.DRAFT)
 
     # Performance metrics
     total_shipments = Column(Integer, default=0)
