@@ -23,10 +23,19 @@ def health_check():
 
 @router.get("/healthz/db")
 def health_check_db(db: Session = Depends(get_db)):
-    """Database health check."""
+    """Database health check with proper error handling."""
     try:
+        from sqlalchemy import text
         # Simple query to check DB connection
-        db.execute("SELECT 1")
-        return {"status": "healthy", "database": "connected"}
+        db.execute(text("SELECT 1"))
+        return {
+            "status": "healthy",
+            "database": "connected",
+            "environment": settings.ENVIRONMENT
+        }
     except Exception as e:
-        return {"status": "unhealthy", "database": "disconnected", "error": str(e)}
+        from fastapi import HTTPException, status
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail={"status": "unhealthy", "database": "disconnected", "error": str(e)}
+        )

@@ -1,7 +1,9 @@
 """Authentication endpoints: register, login."""
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Request
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
+from slowapi import Limiter
+from slowapi.util import get_remote_address
 from app.core.database import get_db
 from app.core.security import (
     verify_password,
@@ -14,9 +16,13 @@ from app.schemas.user import UserCreate, User as UserSchema, Token
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
+# Rate limiter - prevent brute force attacks
+limiter = Limiter(key_func=get_remote_address)
+
 
 @router.post("/register", response_model=UserSchema, status_code=status.HTTP_201_CREATED)
-def register(user_in: UserCreate, db: Session = Depends(get_db)):
+@limiter.limit("5/hour")  # 5 registrations per hour per IP
+def register(request: Request, user_in: UserCreate, db: Session = Depends(get_db)):
     """Register a new user."""
     # Check if user already exists
     existing_user = db.query(User).filter(User.email == user_in.email).first()
@@ -44,7 +50,9 @@ def register(user_in: UserCreate, db: Session = Depends(get_db)):
 
 
 @router.post("/login", response_model=Token)
+@limiter.limit("10/minute")  # 10 login attempts per minute per IP
 def login(
+    request: Request,
     form_data: OAuth2PasswordRequestForm = Depends(),
     db: Session = Depends(get_db)
 ):
