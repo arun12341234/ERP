@@ -72,7 +72,7 @@ class SystemHealthCheck(Base):
     next_check_at = Column(DateTime, nullable=True)
 
     # Additional data
-    metadata = Column(Text, nullable=True)  # JSON object
+    health_metadata = Column(Text, nullable=True)  # JSON object
     logs = Column(Text, nullable=True)  # Recent log entries
 
     # Timestamps
