@@ -91,7 +91,7 @@ class DocumentDigitization(Base):
 
     # Tags and metadata
     tags = Column(Text, nullable=True)  # JSON array
-    metadata = Column(Text, nullable=True)  # JSON object
+    document_metadata = Column(Text, nullable=True)  # JSON object
 
     # Timestamps
     created_at = Column(DateTime, default=datetime.utcnow)

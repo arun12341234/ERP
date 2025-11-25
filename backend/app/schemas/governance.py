@@ -134,7 +134,7 @@ class SystemHealthCheckResponse(BaseModel):
     check_interval_seconds: int
     last_checked_at: Optional[datetime]
     next_check_at: Optional[datetime]
-    metadata: Optional[str]
+    health_metadata: Optional[str]
     logs: Optional[str]
     created_at: datetime
     updated_at: datetime
@@ -191,7 +191,7 @@ class APIIntegrationResponse(BaseModel):
     retry_count: int
     retry_delay_seconds: int
     tags: Optional[str]
-    metadata: Optional[str]
+    integration_metadata: Optional[str]
     created_at: datetime
     updated_at: datetime
 
@@ -247,7 +247,7 @@ class DocumentDigitizationResponse(BaseModel):
     retry_count: int
     uploaded_by_id: Optional[int]
     tags: Optional[str]
-    metadata: Optional[str]
+    document_metadata: Optional[str]
     created_at: datetime
     updated_at: datetime
 

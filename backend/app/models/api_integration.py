@@ -94,7 +94,7 @@ class APIIntegration(Base):
 
     # Metadata
     tags = Column(Text, nullable=True)  # JSON array
-    metadata = Column(Text, nullable=True)  # JSON object
+    integration_metadata = Column(Text, nullable=True)  # JSON object
 
     # Timestamps
     created_at = Column(DateTime, default=datetime.utcnow)
