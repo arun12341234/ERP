@@ -28,8 +28,17 @@ export default function Login({ onLogin }: LoginProps) {
   useEffect(() => {
     const token = localStorage.getItem('token');
     const storedUser = localStorage.getItem('user');
+
+    // Only redirect if we have BOTH valid token and user data
     if (token && storedUser) {
-      navigate('/dashboard', { replace: true });
+      try {
+        JSON.parse(storedUser); // Validate user data is valid JSON
+        navigate('/dashboard', { replace: true });
+      } catch (e) {
+        // Invalid user data, clear storage
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+      }
     }
   }, [navigate]);
 
@@ -46,11 +55,18 @@ export default function Login({ onLogin }: LoginProps) {
     setError('');
 
     try {
+      console.log('Attempting login...', data.email);
       const user = await api.login(data.email, data.password);
+      console.log('Login successful, user:', user);
+
       onLogin(user);
+      console.log('User state updated, navigating to dashboard...');
       navigate('/dashboard', { replace: true });
     } catch (err: any) {
-      setError(err.response?.data?.detail || 'Login failed. Please try again.');
+      console.error('Login error:', err);
+      const errorMessage = err.response?.data?.detail || err.message || 'Login failed. Please try again.';
+      console.error('Error message:', errorMessage);
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
