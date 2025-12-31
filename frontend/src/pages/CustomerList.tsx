@@ -57,6 +57,12 @@ export default function CustomerList() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Customers</h1>
+        <Link
+          to="/customers/new"
+          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+        >
+          + New Customer
+        </Link>
       </div>
 
       <div className="bg-white shadow overflow-hidden sm:rounded-lg">
@@ -95,9 +101,12 @@ export default function CustomerList() {
                     ${customer.current_balance.toLocaleString()}
                   </span>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-3">
                   <Link to={`/customers/${customer.id}`} className="text-blue-600 hover:text-blue-900">
                     View
+                  </Link>
+                  <Link to={`/customers/${customer.id}/edit`} className="text-indigo-600 hover:text-indigo-900">
+                    Edit
                   </Link>
                 </td>
               </tr>

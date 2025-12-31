@@ -16,6 +16,8 @@ import ItemForm from './pages/ItemForm';
 import LeadList from './pages/LeadList';
 import LeadForm from './pages/LeadForm';
 import CustomerList from './pages/CustomerList';
+import CustomerForm from './pages/CustomerForm';
+import CustomerDetail from './pages/CustomerDetail';
 import ProductList from './pages/ProductList';
 import WorkOrderList from './pages/WorkOrderList';
 import MachineList from './pages/MachineList';
@@ -67,6 +69,9 @@ function App() {
               <Route path="/leads/new" element={<LeadForm />} />
               <Route path="/leads/:id/edit" element={<LeadForm />} />
               <Route path="/customers" element={<CustomerList />} />
+              <Route path="/customers/new" element={<CustomerForm />} />
+              <Route path="/customers/:id" element={<CustomerDetail />} />
+              <Route path="/customers/:id/edit" element={<CustomerForm />} />
               <Route path="/opportunities" element={<div className="p-8 text-center">Opportunities - Coming Soon</div>} />
               <Route path="/quotes" element={<div className="p-8 text-center">Quotes - Coming Soon</div>} />
               <Route path="/sales-orders" element={<div className="p-8 text-center">Sales Orders - Coming Soon</div>} />
