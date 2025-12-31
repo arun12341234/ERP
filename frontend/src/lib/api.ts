@@ -20,6 +20,9 @@ axiosInstance.interceptors.request.use(
     const token = localStorage.getItem('token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
+      console.log(`[API] Adding Authorization header for ${config.url}`);
+    } else {
+      console.log(`[API] No token found for ${config.url}`);
     }
     return config;
   },
@@ -71,15 +74,27 @@ export const api = {
     formData.append('username', email);
     formData.append('password', password);
 
+    console.log('[API] Sending login request...');
     const response = await axiosInstance.post('/auth/login', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
 
+    console.log('[API] Login response:', response.data);
     const { access_token } = response.data;
+
+    if (!access_token) {
+      throw new Error('No access token received from server');
+    }
+
+    console.log('[API] Token received, length:', access_token.length);
     localStorage.setItem('token', access_token);
+    console.log('[API] Token stored in localStorage');
 
     // Fetch user profile
+    console.log('[API] Fetching user profile...');
     const user = await this.get('/users/me');
+    console.log('[API] User profile received:', user);
+
     localStorage.setItem('user', JSON.stringify(user));
 
     return user;
