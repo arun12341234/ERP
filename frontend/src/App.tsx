@@ -14,6 +14,7 @@ import ItemList from './pages/ItemList';
 import ItemDetail from './pages/ItemDetail';
 import ItemForm from './pages/ItemForm';
 import LeadList from './pages/LeadList';
+import LeadForm from './pages/LeadForm';
 import CustomerList from './pages/CustomerList';
 import ProductList from './pages/ProductList';
 import WorkOrderList from './pages/WorkOrderList';
@@ -63,6 +64,8 @@ function App() {
 
               {/* CRM & Sales */}
               <Route path="/leads" element={<LeadList />} />
+              <Route path="/leads/new" element={<LeadForm />} />
+              <Route path="/leads/:id/edit" element={<LeadForm />} />
               <Route path="/customers" element={<CustomerList />} />
               <Route path="/opportunities" element={<div className="p-8 text-center">Opportunities - Coming Soon</div>} />
               <Route path="/quotes" element={<div className="p-8 text-center">Quotes - Coming Soon</div>} />

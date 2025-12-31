@@ -48,6 +48,17 @@ export default function LeadList() {
     }
   };
 
+  const handleConvert = async (id: number) => {
+    if (!confirm('Convert this qualified lead to a customer?')) return;
+
+    try {
+      await api.post(`/leads/${id}/convert`);
+      loadLeads();
+    } catch (error: any) {
+      alert(error.response?.data?.detail || 'Failed to convert lead');
+    }
+  };
+
   const getStatusBadge = (status: string) => {
     const colors: Record<string, string> = {
       new: 'bg-blue-100 text-blue-800',
@@ -83,6 +94,12 @@ export default function LeadList() {
             <option value="rejected">Rejected</option>
             <option value="converted">Converted</option>
           </select>
+          <Link
+            to="/leads/new"
+            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+          >
+            + New Lead
+          </Link>
         </div>
       </div>
 
@@ -126,6 +143,12 @@ export default function LeadList() {
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
+                  <Link
+                    to={`/leads/${lead.id}/edit`}
+                    className="text-blue-600 hover:text-blue-900"
+                  >
+                    Edit
+                  </Link>
                   {lead.status === 'new' && (
                     <button
                       onClick={() => handleQualify(lead.id, 75)}
@@ -135,7 +158,10 @@ export default function LeadList() {
                     </button>
                   )}
                   {lead.status === 'qualified' && (
-                    <button className="text-purple-600 hover:text-purple-900">
+                    <button
+                      onClick={() => handleConvert(lead.id)}
+                      className="text-purple-600 hover:text-purple-900"
+                    >
                       Convert
                     </button>
                   )}
