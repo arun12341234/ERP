@@ -22,7 +22,7 @@ export default function AuditLogList() {
   const [logs, setLogs] = useState<AuditLog[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect() => {
+  useEffect(() => {
     loadLogs();
   }, []);
 

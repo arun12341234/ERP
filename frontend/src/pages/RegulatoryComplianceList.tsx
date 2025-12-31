@@ -57,7 +57,7 @@ export default function RegulatoryComplianceList() {
     );
   };
 
-  const isExpiringS oon = (expiryDate?: string) => {
+  const isExpiringSoon = (expiryDate?: string) => {
     if (!expiryDate) return false;
     const daysUntilExpiry = Math.ceil((new Date(expiryDate).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24));
     return daysUntilExpiry <= 30 && daysUntilExpiry >= 0;
