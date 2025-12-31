@@ -18,6 +18,9 @@ import LeadForm from './pages/LeadForm';
 import CustomerList from './pages/CustomerList';
 import CustomerForm from './pages/CustomerForm';
 import CustomerDetail from './pages/CustomerDetail';
+import OpportunityList from './pages/OpportunityList';
+import OpportunityForm from './pages/OpportunityForm';
+import OpportunityDetail from './pages/OpportunityDetail';
 import ProductList from './pages/ProductList';
 import WorkOrderList from './pages/WorkOrderList';
 import MachineList from './pages/MachineList';
@@ -72,7 +75,10 @@ function App() {
               <Route path="/customers/new" element={<CustomerForm />} />
               <Route path="/customers/:id" element={<CustomerDetail />} />
               <Route path="/customers/:id/edit" element={<CustomerForm />} />
-              <Route path="/opportunities" element={<div className="p-8 text-center">Opportunities - Coming Soon</div>} />
+              <Route path="/opportunities" element={<OpportunityList />} />
+              <Route path="/opportunities/new" element={<OpportunityForm />} />
+              <Route path="/opportunities/:id" element={<OpportunityDetail />} />
+              <Route path="/opportunities/:id/edit" element={<OpportunityForm />} />
               <Route path="/quotes" element={<div className="p-8 text-center">Quotes - Coming Soon</div>} />
               <Route path="/sales-orders" element={<div className="p-8 text-center">Sales Orders - Coming Soon</div>} />
               <Route path="/tickets" element={<div className="p-8 text-center">Support Tickets - Coming Soon</div>} />
