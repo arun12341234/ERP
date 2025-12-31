@@ -43,10 +43,18 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -
 
 def decode_access_token(token: str) -> Optional[dict]:
     """Decode and validate a JWT token."""
+    import logging
+    logger = logging.getLogger(__name__)
+
     try:
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
+        logger.debug(f"Token decoded successfully, payload keys: {payload.keys()}")
         return payload
-    except JWTError:
+    except JWTError as e:
+        logger.error(f"JWT decode error: {str(e)}, token length: {len(token) if token else 0}")
+        return None
+    except Exception as e:
+        logger.error(f"Unexpected error decoding token: {str(e)}")
         return None
 
 
@@ -56,6 +64,9 @@ async def get_current_user(
 ):
     """Get current authenticated user from JWT token."""
     from app.models.user import User
+    import logging
+
+    logger = logging.getLogger(__name__)
 
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
@@ -63,23 +74,41 @@ async def get_current_user(
         headers={"WWW-Authenticate": "Bearer"},
     )
 
-    payload = decode_access_token(token)
-    if payload is None:
+    try:
+        payload = decode_access_token(token)
+        if payload is None:
+            logger.error("Token decode failed - payload is None")
+            raise credentials_exception
+
+        user_id_raw = payload.get("sub")
+        if user_id_raw is None:
+            logger.error("No 'sub' field in token payload")
+            raise credentials_exception
+
+        # Convert to int if it's a string
+        try:
+            user_id = int(user_id_raw)
+        except (ValueError, TypeError) as e:
+            logger.error(f"Invalid user_id in token: {user_id_raw}, error: {e}")
+            raise credentials_exception
+
+        user = db.query(User).filter(User.id == user_id).first()
+        if user is None:
+            logger.error(f"User not found with id: {user_id}")
+            raise credentials_exception
+
+        # If tenancy is enabled, add tenant_id to user context
+        if settings.ENABLE_TENANCY and payload.get("tenant_id"):
+            user.current_tenant_id = payload.get("tenant_id")
+
+        logger.info(f"User authenticated successfully: {user.email}")
+        return user
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Unexpected error in get_current_user: {e}")
         raise credentials_exception
-
-    user_id: int = payload.get("sub")
-    if user_id is None:
-        raise credentials_exception
-
-    user = db.query(User).filter(User.id == user_id).first()
-    if user is None:
-        raise credentials_exception
-
-    # If tenancy is enabled, add tenant_id to user context
-    if settings.ENABLE_TENANCY and payload.get("tenant_id"):
-        user.current_tenant_id = payload.get("tenant_id")
-
-    return user
 
 
 def get_current_active_user(current_user = Depends(get_current_user)):
