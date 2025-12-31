@@ -88,8 +88,8 @@ def login(
             detail="Inactive user"
         )
 
-    # Create access token
-    token_data = {"sub": user.id}
+    # Create access token - JWT spec requires 'sub' to be a string
+    token_data = {"sub": str(user.id)}
     if settings.ENABLE_TENANCY and hasattr(user, "tenant_id"):
         token_data["tenant_id"] = user.tenant_id
 
